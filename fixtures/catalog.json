@@ -1,0 +1,12 @@
+[
+  {
+    "id": "memory-preference",
+    "kind": "记忆类别",
+    "name": "用户偏好"
+  },
+  {
+    "id": "support-offline",
+    "kind": "支持资源",
+    "name": "现实支持渠道"
+  }
+]
