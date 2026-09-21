@@ -1,12 +1,102 @@
 [
   {
+    "id": "purpose-companionship",
+    "kind": "使用目的",
+    "name": "情绪陪伴"
+  },
+  {
+    "id": "memory-session-context",
+    "kind": "记忆类别",
+    "name": "当前对话上下文"
+  },
+  {
     "id": "memory-preference",
     "kind": "记忆类别",
     "name": "用户偏好"
   },
   {
+    "id": "capability-listening",
+    "kind": "角色能力",
+    "name": "倾听与共情回应"
+  },
+  {
+    "id": "capability-boundary-disclosure",
+    "kind": "角色能力",
+    "name": "能力边界说明"
+  },
+  {
+    "id": "age-adult",
+    "kind": "年龄级别",
+    "name": "成年用户级别"
+  },
+  {
+    "id": "age-minor-protected",
+    "kind": "年龄级别",
+    "name": "未成年保护级别"
+  },
+  {
+    "id": "risk-ordinary-emotion",
+    "kind": "风险信号",
+    "name": "普通情绪表达"
+  },
+  {
+    "id": "risk-urgent-danger",
+    "kind": "风险信号",
+    "name": "明确紧迫危险信号"
+  },
+  {
     "id": "support-offline",
     "kind": "支持资源",
     "name": "现实支持渠道"
+  },
+  {
+    "id": "support-crisis-hotline",
+    "kind": "支持资源",
+    "name": "紧急求助热线"
+  },
+  {
+    "id": "intervention-help-prompt",
+    "kind": "干预动作",
+    "name": "限时现实求助提示"
+  },
+  {
+    "id": "review-minimal-snippet",
+    "kind": "人工复核",
+    "name": "最小对话片段"
+  },
+  {
+    "id": "event-model-upgrade",
+    "kind": "可解释事件",
+    "name": "模型升级"
+  },
+  {
+    "id": "event-message-edit",
+    "kind": "可解释事件",
+    "name": "消息删改"
+  },
+  {
+    "id": "event-cross-device-retry",
+    "kind": "可解释事件",
+    "name": "跨设备重试"
+  },
+  {
+    "id": "event-false-positive-appeal",
+    "kind": "可解释事件",
+    "name": "误报申诉"
+  },
+  {
+    "id": "event-long-heavy-use",
+    "kind": "可解释事件",
+    "name": "长期高频使用"
+  },
+  {
+    "id": "copy-search-index",
+    "kind": "数据副本",
+    "name": "检索索引"
+  },
+  {
+    "id": "copy-research-snapshot",
+    "kind": "数据副本",
+    "name": "研究副本"
   }
 ]
