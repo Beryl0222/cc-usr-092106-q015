@@ -1,12 +1,140 @@
-[
-  {
-    "id": "memory-preference",
-    "kind": "记忆类别",
-    "name": "用户偏好"
-  },
-  {
-    "id": "support-offline",
-    "kind": "支持资源",
-    "name": "现实支持渠道"
+{
+  "purposes": [
+    {
+      "id": "purpose-continuity",
+      "name": "维持当前对话连贯",
+      "description": "仅在本轮对话中引用用户刚刚提供的信息，使回复不需要反复追问背景。"
+    },
+    {
+      "id": "purpose-safety",
+      "name": "识别紧迫危险",
+      "description": "在出现明确而紧迫的危险信号时，按公开规则提示现实求助渠道。"
+    }
+  ],
+  "memory_kinds": [
+    {
+      "id": "memory-conversation-context",
+      "name": "当前对话上下文",
+      "retention": "conversation",
+      "revocable": true
+    },
+    {
+      "id": "memory-preference",
+      "name": "用户偏好",
+      "retention": "persistent",
+      "revocable": true
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "cap-emotional-support",
+      "name": "倾听与情绪陪伴",
+      "boundary": "提供倾听与表达梳理，不提供心理诊断或治疗，频繁倾诉不等同于获得幸福或长期福祉改善。"
+    },
+    {
+      "id": "cap-crisis-referral",
+      "name": "危机求助指引",
+      "boundary": "仅在明确紧迫信号出现时按公开规则提示现实资源，不能替代急救、医生或专业危机干预。"
+    }
+  ],
+  "age_tiers": [
+    {
+      "id": "age-adult",
+      "name": "成年用户"
+    },
+    {
+      "id": "age-minor",
+      "name": "未成年用户"
+    }
+  ],
+  "risk_signals": [
+    {
+      "id": "signal-sadness",
+      "name": "低落、难过等普通情绪表达",
+      "severity": "ordinary-emotion"
+    },
+    {
+      "id": "signal-imminent-self-harm",
+      "name": "正在发生或迫在眉睫的自伤伤人危险",
+      "severity": "clear-urgent-danger",
+      "rule_id": "rule-imminent-danger"
+    }
+  ],
+  "resources": [
+    {
+      "id": "resource-emergency-call",
+      "name": "当地紧急电话",
+      "channel": "拨打当地急救/报警电话（如 120、110）"
+    },
+    {
+      "id": "resource-crisis-hotline",
+      "name": "心理援助热线",
+      "channel": "当地官方心理危机干预热线"
+    }
+  ],
+  "rules": [
+    {
+      "id": "rule-imminent-danger",
+      "name": "迫在眉睫危险提示规则",
+      "basis": "用户表达了具体计划、手段与即时时间的自伤或伤人意图。",
+      "resource_ids": [
+        "resource-emergency-call",
+        "resource-crisis-hotline"
+      ]
+    }
+  ],
+  "interventions": [
+    {
+      "id": "intervention-crisis-notice",
+      "name": "危机现实求助提示",
+      "visible_basis": "消息中出现具体计划、手段与即时时间的自伤/伤人意图，命中规则 rule-imminent-danger。",
+      "action": "在对话中展示紧急电话与心理援助热线，并暂缓非必要的陪伴式回复。",
+      "expires_after": "720h",
+      "review_min_fragment": "仅向人工复核暴露触发规则的单条消息，不附带无关对话历史或长期记忆。"
+    }
+  ],
+  "event_types": [
+    {
+      "id": "event-model-upgrade",
+      "code": "model-upgrade",
+      "name": "模型升级",
+      "description": "底层模型版本发生变化，记录旧版本、新版本与生效时间。"
+    },
+    {
+      "id": "event-message-edit-delete",
+      "code": "message-edit-delete",
+      "name": "消息删改",
+      "description": "用户或系统删除、修改消息，记录被处理的范围与时间。"
+    },
+    {
+      "id": "event-cross-device-retry",
+      "code": "cross-device-retry",
+      "name": "跨设备重试",
+      "description": "请求在不同设备或会话间重试，记录重试来源与关联状态。"
+    },
+    {
+      "id": "event-false-positive-appeal",
+      "code": "false-positive-appeal",
+      "name": "误报申诉",
+      "description": "用户对风险判定提出申诉，记录依据、复核结论与解除情况。"
+    },
+    {
+      "id": "event-long-high-frequency-use",
+      "code": "long-high-frequency-use",
+      "name": "长期高频使用",
+      "description": "用户长期高频使用产品，记录提示其回到现实支持的时间点，不形成永久标签。"
+    },
+    {
+      "id": "event-deletion-cascade",
+      "code": "deletion-cascade",
+      "name": "删除级联",
+      "description": "数据删除后，相关索引与研究副本同步失效，记录失效的副本范围。"
+    }
+  ],
+  "deletion_cascade": {
+    "targets": [
+      "index",
+      "research"
+    ]
   }
-]
+}
